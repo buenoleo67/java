@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+public class Sistema {
+	
+
+		public static void main(String[]args) {
+			int i,c;
+			String qtd = new String();
+			i = 0;
+			float media =0;
+			float maior = 0;
+			float menor = 0;
+			float total = 0;
+			 qtd = JOptionPane.showInputDialog(null, "Insira a quantidade de alunos: ");
+			c = Integer.parseInt(qtd);	
+			float notas[]= new float[c];
+			String alunos[]= new String[c];
+						
+			while(i < c) {
+				alunos[i] = JOptionPane.showInputDialog(null, "Insira o nome do aluno: " + i);			
+			  String notaTemp = JOptionPane.showInputDialog(null, "Insira a nota do aluno: "+ alunos[i]);
+			  notas[i] = Float.parseFloat(notaTemp);
+			  total = total + notas[i];
+			  if(maior <= notas[i]) {
+				  maior = notas[i];
+			  }
+			  if(menor > notas[i]){
+				  menor= notas[i];	 
+			  }
+			 
+				i++;
+			}
+			 media = total/c;	  			  
+			  
+			System.out.println("A maior nota foi de " + maior);
+			System.out.println("A menor nota foi de " + menor);
+			System.out.println("A media  foi de " + media);
+		}
+
+	}
+
+
+
