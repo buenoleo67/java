@@ -12,6 +12,8 @@ public class Sistema {
 			float maior = 0;
 			float menor = 0;
 			float total = 0;
+			String menornota= new String();
+			String maiornota = new String();
 			 qtd = JOptionPane.showInputDialog(null, "Insira a quantidade de alunos: ");
 			c = Integer.parseInt(qtd);	
 			float notas[]= new float[c];
@@ -22,20 +24,28 @@ public class Sistema {
 			  String notaTemp = JOptionPane.showInputDialog(null, "Insira a nota do aluno: "+ alunos[i]);
 			  notas[i] = Float.parseFloat(notaTemp);
 			  total = total + notas[i];
+			  if(i ==0) {
+				  maior = notas[i];
+				  menor = notas[i];
+			  }else
 			  if(maior <= notas[i]) {
+				   maiornota = alunos[i];
 				  maior = notas[i];
 			  }
 			  if(menor > notas[i]){
-				  menor= notas[i];	 
+				  menornota = alunos[i];
+				  menor = notas[i];	 
 			  }
 			 
 				i++;
 			}
-			 media = total/c;	  			  
-			  
-			System.out.println("A maior nota foi de " + maior);
-			System.out.println("A menor nota foi de " + menor);
-			System.out.println("A media  foi de " + media);
+			 media = total/c;	
+			 String texto = "A média da turma é " + media + "\n" +
+			 "A maior nota foi do aluno(a) " + maiornota + " com nota de " + maior + "\n" +
+			"A menor nota foi do aluno (a)" + menornota + " com nota de " + menor + "\n";
+			 JOptionPane.showMessageDialog(null, texto);
+			 
+			
 		}
 
 	}
