@@ -1,0 +1,60 @@
+package aula4;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class sistema2 {
+	public static void main(String[]args) {
+		Scanner leitor = new Scanner(System.in);
+	//array dinamico
+		ArrayList <String> cidades  = new ArrayList<>();
+		int op = 0;
+		do {
+			System.out.println("--- MENU ---- \n"
+					+ "1 - Cadastrar cidades \n"
+					+ "2 - Listar cidades \n"
+					+ "3 - Remover cidade\n"
+					+ "0 - Sair.");
+			op = leitor.nextInt();
+			switch(op) {
+			//adiciona elemento ao array
+			case 1:
+				System.out.println("Digite a cidade para registrar: ");
+				cidades.add(leitor.next());
+				leitor.reset();
+				System.out.println(cidades.size() + " cidades cadastradas");
+				break;
+			case 2:
+			for(String c : cidades) {
+				System.out.println(c);
+			}
+				break;
+			
+			case 3 :
+				System.out.println("Digite o index da  cidade que  deseja remover: ");
+				String nomeDig = leitor.next();
+				leitor.reset();
+				for(int i =0; i < cidades.size(); i++) {
+					if(cidades.get(i).equals(nomeDig)) {
+						cidades.remove(i);
+						System.out.println("Deletado com sucesso!");
+					
+					}
+					break;
+				}
+				
+					
+					
+				
+				
+			default:
+				System.out.println("Fim da execução");
+			}
+			
+			
+		}while(op != 0);
+		
+		
+		
+		
+	}
+
+}
